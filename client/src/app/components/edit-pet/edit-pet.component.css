@@ -1,0 +1,43 @@
+.wrapper {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 25px;
+}
+h2 {
+    margin: 15px;
+}
+form {
+    width: 350px;
+    padding: 20px;
+    border: darkgray 1px solid;
+}
+input {
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.btn {
+    background:    #00dbff;
+    border-radius: 5px;
+    padding:       8px 20px;
+    color:         #ffffff;
+    display:       inline-block;
+    font:          normal 700 24px/1 "Calibri", sans-serif;
+    text-align:    center;
+    text-shadow:   none;
+    border-style: none;
+    margin: 5px;
+}
+a:link.btn{
+    text-decoration: none;
+}
+.errors {
+    color: purple;
+    font-size: 12px;
+    font-weight: bold;
+}
+.skills {
+    margin: 10px 15px;
+}
+p:last-of-type {
+    margin-left: auto;
+    margin-right: auto;
+}

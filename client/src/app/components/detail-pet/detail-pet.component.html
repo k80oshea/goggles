@@ -1,0 +1,27 @@
+<div class="wrapper">
+  <a href="/">Home</a>
+  <h3>Details about {{pet.name}}</h3>
+  <table>
+    <tr>
+      <td class="row">Pet type: </td>
+      <td>{{pet.type}}</td>
+    </tr>
+    <tr>
+      <td class="row">Description: </td>
+      <td>{{pet.desc}}</td>
+    </tr>
+    <tr>
+      <td class="row">Skills: </td>
+      <td *ngIf="pet.skills.length>0"><p *ngFor="let x of pet.skills">{{x}}</p></td>
+      <td *ngIf="pet.skills.length==0">{{pet.name}} has no skills yet</td>
+    </tr>
+    <tr>
+      <td class="row">Likes: </td>
+      <td>{{pet.likes}}</td>
+    </tr>
+  </table> 
+  <div class="buttons">
+    <a (click)="like()" class="btn">Like this pet</a>          
+    <a (click)="adopt()" class="btn">Adopt this pet!</a>
+  </div>
+</div>

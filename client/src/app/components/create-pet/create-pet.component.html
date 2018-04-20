@@ -1,0 +1,25 @@
+<div class="wrapper">
+  <h3>Know of a pet needing a home?</h3>
+  <div class="errors" *ngIf="petname.invalid && petname.touched">Name of pet is required and must be between 3 and 255 characters</div>
+  <div class="errors" *ngIf="pettype.invalid && pettype.touched">Type of pet is required and must be between 3 and 255 characters</div>
+  <div class="errors" *ngIf="petdesc.invalid && petdesc.touched">Description of pet is required and must be between 3 and 255 characters</div>
+  <div class="errors" *ngIf="petskills.invalid">Skills should be entered in order and must be between 3 and 255 characters</div>  
+  <div class="errors" *ngIf="errors">This pet is incomplete, please try again</div>
+  <div class="errors" *ngIf="nodups">{{nodups}}</div>
+  <form (submit)="create()" class="form-group"> 
+    <p>Pet Name: </p> 
+    <input type="text" name="name" [(ngModel)]="newPet.name" required minlength="3" maxlength="255" #petname="ngModel">
+    <p>Pet Type: </p> 
+    <input type="text" name="type" [(ngModel)]="newPet.type" required minlength="3" maxlength="255" #pettype="ngModel">
+    <p>Description: </p> 
+    <input type="text" name="desc" [(ngModel)]="newPet.desc" required minlength="3" maxlength="255" #petdesc="ngModel">
+    <p>Skills: </p> 
+      <div class="skills">
+        <p>Skill 1: <input type="text" name="skills" [(ngModel)]="newPet.skills[0]" minlength="3" maxlength="255" #petskills="ngModel"></p>
+        <p>Skill 2: <input type="text" name="skills" [(ngModel)]="newPet.skills[1]" minlength="3" maxlength="255" #petskills="ngModel"></p>
+        <p>Skill 3: <input type="text" name="skills" [(ngModel)]="newPet.skills[2]" minlength="3" maxlength="255" #petskills="ngModel"></p>
+      </div>
+    <p><input type="submit" value="Add pet" class="btn">
+    <a href="/" class="btn">Cancel</a></p>
+    </form>
+</div>
