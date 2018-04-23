@@ -34,7 +34,6 @@ class PetController{
         })
     }
     update(req, res) {
-        console.log(req.params.id);
         Pet.findOne({_id: req.params.id}, (err, pet)=> {
             if(err) {
                 res.json({errors: err});                    

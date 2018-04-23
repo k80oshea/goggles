@@ -9,10 +9,12 @@ import { PetService } from '../../services/pet.service';
 })
 export class DetailPetComponent implements OnInit {
   private pet: any;
+  private likebutton: any;
   constructor(private route:ActivatedRoute, private router: Router, private petServ: PetService) { }
 
   ngOnInit() {
     this.show();
+    this.likebutton = true;
   }
   show() {
     this.petServ.find(this.route.params._value.id, (data)=>{
@@ -22,6 +24,7 @@ export class DetailPetComponent implements OnInit {
   like() {
     this.petServ.like(this.pet, (data)=>{ 
       this.show();
+      this.likebutton = false;
     });
   }
   adopt() {

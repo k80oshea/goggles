@@ -21,7 +21,8 @@
     </tr>
   </table> 
   <div class="buttons">
-    <a (click)="like()" class="btn">Like this pet</a>          
+    <a (click)="like()" *ngIf="likebutton" class="btn">Like this pet</a>   
+    <a *ngIf="!likebutton" class="btn">Liked!</a>                     
     <a (click)="adopt()" class="btn">Adopt this pet!</a>
   </div>
 </div>

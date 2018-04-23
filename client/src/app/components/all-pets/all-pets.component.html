@@ -1,13 +1,14 @@
-<div class="pets">
+<div class="pets" ng-app="myApp">
   <h3>These pets are looking for a home!</h3>
   <a href="/new">Add a pet to the shelter</a>
-  <table>
+  <table ng-controller="orderCtrl">
     <tr>
       <th>Name</th>
       <th>Type</th>
       <th>Actions</th>
     </tr>
-      <tr *ngFor="let pet of pets">
+      <tr *ngFor="let pet of pets ">
+      <!-- <tr ng-repeat="pet in pets | orderBy:'-type'"> -->
         <td>{{pet.name}}</td>
         <td>{{pet.type}}</td>
         <td>
@@ -16,4 +17,13 @@
         </td>          
       </tr>
   </table>
+  <div  ng-repeat="p in pets">
+      {{p.name}}
+   </div>
 </div>
+<!-- <script>
+  var app = angular.module('myApp', []);
+  app.controller('orderCtrl', function($scope) {
+    $scope.customers;
+  });
+</script> -->

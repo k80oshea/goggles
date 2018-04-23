@@ -20,7 +20,6 @@ export class PetService {
     .subscribe(data=>cb(data));
   }
   update(pet, cb) { 
-    console.log(pet._id);
     this.http.put("/pets/"+pet._id, pet) 
     .subscribe(data=>cb(data)); 
   } 

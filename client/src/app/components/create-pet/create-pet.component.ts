@@ -9,7 +9,7 @@ import { PetService } from '../../services/pet.service';
 })
 export class CreatePetComponent implements OnInit {
   private newPet: any;
-  private errors: [];
+  private errors: any;
   private nodups: any;
   constructor(private route:ActivatedRoute, private router: Router, private petServ: PetService) { }
 
@@ -27,6 +27,7 @@ export class CreatePetComponent implements OnInit {
       if(data.errors) {
         this.newPet = { name: this.newPet.name, type: this.newPet.type, desc: this.newPet.desc, skills: this.newPet.skills };
         this.errors = data;
+        console.log(this.errors)
         if(data.errors.code==11000) {
           this.nodups = "This pet name is already in use at the shelter.";
         }
