@@ -11,20 +11,22 @@ export class EditPetComponent implements OnInit {
   private editPet: any;
   private errors: any;
   private nodups: any;
+  private petId: any;
   constructor(private route:ActivatedRoute, private router: Router, private petServ: PetService) { 
 
   }
 
   ngOnInit() {
     this.find();
+    this.route.params.subscribe((params: Params) => this.petId = params['id']);
   }
   find(){
-    this.petServ.find(this.route.params._value.id, (data)=>{
+    this.petServ.find(this.petId, (data)=>{
       this.editPet = data[0];
     });
   }
   edit() {
-    this.editPet._id = this.route.params._value.id;
+    this.editPet._id = this.petId;
     this.petServ.update(this.editPet, (data)=>{ 
       if(data.errors) {
         this.editPet = { name: this.editPet.name, type: this.editPet.type, desc: this.editPet.desc, skills: this.editPet.skills };
@@ -34,7 +36,7 @@ export class EditPetComponent implements OnInit {
         }      
       }
       else {
-        this.router.navigate(["/details/"+this.editPet._id]);        
+        this.router.navigate(["/details/"+this.petId]);        
       }
     });
   }

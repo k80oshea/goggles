@@ -10,14 +10,16 @@ import { PetService } from '../../services/pet.service';
 export class DetailPetComponent implements OnInit {
   private pet: any;
   private likebutton: any;
+  private petId: any;
   constructor(private route:ActivatedRoute, private router: Router, private petServ: PetService) { }
 
   ngOnInit() {
+    this.route.params.subscribe((params: Params) => this.petId = params['id']);
     this.show();
     this.likebutton = true;
   }
   show() {
-    this.petServ.find(this.route.params._value.id, (data)=>{
+    this.petServ.find(this.petId, (data)=>{
       this.pet = data[0];
     });
   }
